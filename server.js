@@ -106,8 +106,8 @@ app.post('/createListing', (req, res) => {
 // Creates a listing
 app.post('/createListing', (req, res) => {
     // Listing holds all values needed for the query
-    //const listing = [req.body.price, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.title, req.body.description, req.body.bedrooms, req.body.baths]
-    const listing = req.body
+    const listing = [req.body.price, req.body.streetAddress, req.body.city, req.body.state, req.body.zipcode, req.body.title, req.body.description, req.body.numBeds, req.body.numBaths]
+    //const listing = req.body
     // ? is replaced iterativley
     const sql = 
     "INSERT INTO properties SET SellerId=1, Price=?, StreetAddress=?, City=?, State=?, Zipcode=?, Title=?, Description=?, NumBeds=?, NumBaths=?"
