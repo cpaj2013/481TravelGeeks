@@ -6,6 +6,8 @@ const mysql = require('mysql')
 const path = require('path')
 // Encryption for user passwords
 const bcrypt = require('bcrypt')
+// Returns JSON for Frontend
+const axios = require('axios');
 
 // Time it takes to encrypt
 var salt = 10;
