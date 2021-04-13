@@ -50,7 +50,7 @@ app.get('/users', (req, res) => {
 
 // Gets properties and sellers
 app.get('/properties', (req, res) => {
-    const sql = 'SELECT P.PropertyId, P.Price, P.StreetAddress, P.City, P.ST, P.Zipcode, P.Title, P.Description, P.NumBeds, P.NumBaths FROM properties P, users U WHERE P.SellerId = U.UserId '
+    const sql = 'SELECT P.PropertyId, P.Price, P.StreetAddress, P.City, P.State, P.Zipcode, P.Title, P.Description, P.NumBeds, P.NumBaths FROM properties P, users U WHERE P.SellerId = U.UserId '
     req.body;
     db.query(sql, (err, result) => {
         if (err) throw err
@@ -94,7 +94,7 @@ app.post('/createListing', (req, res) => {
     const listing = [req.body.price, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.title, req.body.description, req.body.bedrooms, req.body.baths]
     // ? is replaced iterativley
     const sql = 
-    "INSERT INTO properties SET SellerId=1, Price=?, StreetAddress=?, City=?, ST=?, Zipcode=?, Title=?, Description=?, NumBeds=?, NumBaths=?"
+    "INSERT INTO properties SET SellerId=1, Price=?, StreetAddress=?, City=?, State=?, Zipcode=?, Title=?, Description=?, NumBeds=?, NumBaths=?"
     // Listing is provided for the ? wildcard
     db.query(sql, listing, (err, result) => {
         if (err) throw err
