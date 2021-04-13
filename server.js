@@ -88,6 +88,21 @@ app.post('/createUser', (req, res) => {
 
 })
 
+// Creates a review for specific id
+app.post('/createListing', (req, res) => {
+    // Listing holds all values needed for the query
+    const listing = [req.body.price, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.title, req.body.description, req.body.bedrooms, req.body.baths]
+    // ? is replaced iterativley
+    const sql =
+        "INSERT INTO reviews SET SellerId=1, Price=?, StreetAddress=?, City=?, State=?, Zipcode=?, Title=?, Description=?, NumBeds=?, NumBaths=?"
+    // Listing is provided for the ? wildcard
+    db.query(sql, listing, (err, result) => {
+        if (err) throw err
+        res.json(result);
+    })
+})
+
+
 // Creates a listing
 app.post('/createListing', (req, res) => {
     // Listing holds all values needed for the query
