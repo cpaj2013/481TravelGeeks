@@ -27,7 +27,7 @@ db.connect()
 app.use(express.static('public')) // Loads files in public based on url
 // e.g. https://www.travel-geeks.com/index would load index.html and its resources
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 
 // Routes
 app.get('/', (req, res) => {
@@ -92,7 +92,7 @@ app.post('/createUser', (req, res) => {
 })
 
 // Creates a review for specific id
-app.post('/createListing', (req, res) => {
+/*app.post('/createListing', (req, res) => {
     // Listing holds all values needed for the query
     const listing = [req.body.price, req.body.streetAddress, req.body.city, req.body.state, req.body.zipcode, req.body.title, req.body.description, req.body.numBeds, req.body.numBaths]
     // ? is replaced iterativley
@@ -103,7 +103,7 @@ app.post('/createListing', (req, res) => {
         if (err) throw err
         res.json(result);
     })
-})
+})*/
 
 
 // Creates a listing
