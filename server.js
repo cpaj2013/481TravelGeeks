@@ -82,7 +82,7 @@ app.post('/createUser', (req, res) => {
         // Listing is provided for the ? wildcard
         db.query(sql, user, (err, result) => {
             if (err) throw err
-            res.send(result);
+            res.json(result);
         })
     })
 
@@ -98,7 +98,7 @@ app.post('/createListing', (req, res) => {
     // Listing is provided for the ? wildcard
     db.query(sql, listing, (err, result) => {
         if (err) throw err
-        res.send(result);
+        res.json(result);
     })
 })
 
