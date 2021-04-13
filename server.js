@@ -110,6 +110,7 @@ app.post('/createUser', (req, res) => {
 app.post('/createListing', (req, res) => {
     // Listing holds all values needed for the query
     const listing = [req.body.price, req.body.streetAddress, req.body.city, req.body.state, req.body.zipcode, req.body.title, req.body.description, req.body.numBeds, req.body.numBaths]
+    console.log(req.body)
     //const listing = req.body
     // ? is replaced iterativley
     const sql = 
