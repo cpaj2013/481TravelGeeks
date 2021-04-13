@@ -8,6 +8,9 @@ const path = require('path')
 const bcrypt = require('bcrypt')
 // Returns JSON for Frontend
 const axios = require('axios');
+// Parses json for post/put
+const bodyParser = require('body-parser');
+
 
 // Time it takes to encrypt
 var salt = 10;
@@ -24,7 +27,7 @@ db.connect()
 app.use(express.static('public')) // Loads files in public based on url
 // e.g. https://www.travel-geeks.com/index would load index.html and its resources
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 // Routes
 app.get('/', (req, res) => {
