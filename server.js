@@ -105,6 +105,14 @@ app.post('/createUser', (req, res) => {
     })
 })*/
 
+// Gets reviews by property
+app.get('/reviewsByProperty', (req, res) => {
+    const sql = "SELECT * From reviews, users WHERE ReviewerId = UserId AND PropertyId = " + req.body.propertyId
+    db.query(sql, (err, result) => {
+        if (err) throw err
+        res.json(result);
+    })
+})
 
 // Creates a listing
 app.post('/createListing', (req, res) => {
