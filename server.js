@@ -107,7 +107,7 @@ app.post('/createUser', (req, res) => {
 
 // Gets reviews by property
 app.get('/reviewsByProperty', (req, res) => {
-    const sql = "SELECT * From reviews R, users U WHERE R.ReviewerId = U.UserId AND R.PropertyId = " + req.params.propertyId
+    const sql = "SELECT * From reviews R, users U WHERE R.ReviewerId = U.UserId AND R.PropertyId = " + req.params[0]
     db.query(sql, (err, result) => {
         if (err) throw err
         res.json(result);
