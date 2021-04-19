@@ -119,7 +119,7 @@ app.post('/writeReview', (req, res) => {
     console.log(req.body)
 
     const sql =
-    "INSERT INTO reviews SET Rating=?, ReviewTitle=?, ReviewText=?, ReviewerId=2, PropertyId=?"
+    "INSERT INTO reviews SET Rating=?, ReviewTitle=?, ReviewText=?, ReviewerId=1, PropertyId=?"
 
     db.query(sql, review, (err, result) => {
         if (err) throw err
