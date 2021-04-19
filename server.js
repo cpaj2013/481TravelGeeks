@@ -114,6 +114,21 @@ app.get('/reviewsByProperty', (req, res) => {
     })
 })
 
+app.post('/writeReview', (req, res) => {
+    const review = [req.body.rating, req.body.title, req.body.text, req.body.timePosted, req.body.reviewerId, req.body.propId]
+    console.log(req.body)
+
+    const sql =
+    "INSERT INTO reviews SET Rating=?, ReviewTitle=?, ReviewText=?, ReviewerId=2, PropertyId=?"
+
+    db.query(sql, review, (err, result) => {
+        if (err) throw err
+        res.json(result);
+    })
+}) 
+
+
+
 // Creates a listing
 app.post('/createListing', (req, res) => {
     // Listing holds all values needed for the query
