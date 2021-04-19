@@ -115,7 +115,7 @@ app.get('/reviewsByProperty', (req, res) => {
 })
 
 app.post('/writeReview', (req, res) => {
-    const review = [req.body.rating, req.body.title, req.body.text, req.body.timePosted, req.body.reviewerId, req.body.propId]
+    const review = [req.body.rating, req.body.title, req.body.text, req.body.reviewerId, req.body.propId]
     console.log(req.body)
 
     const sql =
